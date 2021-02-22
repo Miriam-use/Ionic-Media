@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { ActionSheetController, Platform } from '@ionic/angular';
-import { MediaCapture, MediaFile, CaptureError } from '@ionic-native/media-capture/ngx';
+import {
+  MediaCapture,
+  MediaFile,
+  CaptureError
+} from '@ionic-native/media-capture/ngx';
 import { File, FileEntry } from '@ionic-native/File/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
-
+ 
 const MEDIA_FOLDER_NAME = 'my_media';
 
 @Component({
@@ -48,7 +51,7 @@ export class HomePage implements OnInit {
       res => {
         this.files = res;
       },
-      err => console.log('error al cargar archivos: ', err)
+      err => console.log('error loading files: ', err)
     );
   }
 
@@ -98,7 +101,7 @@ export class HomePage implements OnInit {
       }
     );
  
-    // Si tiene problemas con Android, primero intente pedir permiso
+    // If you get problems on Android, try to ask for Permission first
     // this.imagePicker.requestReadPermission().then(result => {
     //   console.log('requestReadPermission: ', result);
     //   this.selectMultiple();
